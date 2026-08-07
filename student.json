@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "studentName": "Rohan Sharma",
+        "email": "rohan.sharma@example.com",
+        "mobile": "9876543210",
+        "branch": "Computer Science Engineering",
+        "gender": "Male"
+    },
+    {
+        "id": 2,
+        "studentName": "Priya Verma",
+        "email": "priya.verma@example.com",
+        "mobile": "9123456780",
+        "branch": "Information Technology",
+        "gender": "Female"
+    },
+    {
+        "id": 3,
+        "studentName": "Aman Gupta",
+        "email": "aman.gupta@example.com",
+        "mobile": "9988776655",
+        "branch": "Artificial Intelligence",
+        "gender": "Male"
+    },
+    {
+        "id": 4,
+        "studentName": "Sneha Singh",
+        "email": "sneha.singh@example.com",
+        "mobile": "9871234567",
+        "branch": "Electronics Engineering",
+        "gender": "Female"
+    },
+    {
+        "id": 5,
+        "studentName": "Rahul Meena",
+        "email": "rahul.meena@example.com",
+        "mobile": "9012345678",
+        "branch": "Mechanical Engineering",
+        "gender": "Male"
+    }
+]
