@@ -1,113 +1,348 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    min-height: 100vh;
+    padding: 40px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.container{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
 }
 
-.form-box{
-    background:#fff;
-    width:450px;
-    padding:35px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+/* ==========================================
+   Form Box Styling (Original Theme)
+   ========================================== */
+.form-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-.form-box h1{
-    text-align:center;
-    color:#0077cc;
-    margin-bottom:25px;
+.form-box h1 {
+    text-align: center;
+    color: #0077cc;
+    margin-bottom: 25px;
+    font-size: 26px;
 }
 
-.input-group{
-    margin-bottom:18px;
+.input-group {
+    margin-bottom: 18px;
 }
 
-.input-group label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
-    color:#333;
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333333;
+    font-size: 15px;
 }
 
 .input-group input,
-.input-group select{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
-    transition:0.3s;
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333333;
+    background-color: #ffffff;
+    transition: 0.3s;
 }
 
 .input-group input:focus,
-.input-group select:focus{
-    border-color:#0077cc;
-    outline:none;
-    box-shadow:0 0 8px rgba(0,119,204,0.3);
+.input-group select:focus {
+    border-color: #0077cc;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 119, 204, 0.3);
 }
 
-.btn-group{
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.btn-group button{
-    width:48%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
-    color:white;
-    transition:0.3s;
+.btn-group button {
+    width: 48%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
 }
 
-.btn-group button[type="submit"]{
-    background:#0077cc;
+.btn-group button[type="submit"] {
+    background: #0077cc;
 }
 
-.btn-group button[type="submit"]:hover{
-    background:#005fa3;
+.btn-group button[type="submit"]:hover {
+    background: #005fa3;
 }
 
-.btn-group button[type="reset"]{
-    background:#ff4d4d;
+.btn-group button[type="reset"] {
+    background: #ff4d4d;
 }
 
-.btn-group button[type="reset"]:hover{
-    background:#d93636;
+.btn-group button[type="reset"]:hover {
+    background: #d93636;
 }
 
-@media(max-width:500px){
+/* ==========================================
+   Registered Students & Cards Section
+   ========================================== */
+.cards-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-    .form-box{
-        width:90%;
-        padding:25px;
+.cards-header {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.cards-header h2 {
+    color: #0077cc;
+    font-size: 22px;
+}
+
+.cards-header .counter-badge {
+    background: #0077cc;
+    color: #ffffff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.controls-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.controls-bar input,
+.controls-bar select {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.controls-bar input:focus,
+.controls-bar select:focus {
+    border-color: #0077cc;
+}
+
+/* Dynamic Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* ==========================================
+   CARD STYLE - CORNER IS 10% ROUNDED
+   ========================================== */
+.student-card {
+    background: #ffffff;
+    /* Explicitly 10% rounded corner requirement */
+    border-radius: 10%;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    border: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 119, 204, 0.25);
+    border-color: #0077cc;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.avatar-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0077cc, #00f2fe);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.card-info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.card-info h3 {
+    color: #0077cc;
+    font-size: 18px;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info .id-tag {
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.btn-delete {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.btn-delete:hover {
+    background: #d93636;
+    transform: scale(1.1);
+}
+
+.card-details {
+    background: #f7fafc;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    word-break: break-all;
+}
+
+.detail-row strong {
+    color: #555;
+    min-width: 60px;
+}
+
+.card-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tag-branch {
+    background: #e0f2fe;
+    color: #0284c7;
+    border: 1px solid #bae6fd;
+}
+
+.tag-gender {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+/* Empty State */
+.empty-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #666;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Media Queries (Responsive) */
+@media(max-width: 500px) {
+    .form-box {
+        width: 100%;
+        padding: 25px;
     }
 
-    .btn-group{
-        flex-direction:column;
+    .btn-group {
+        flex-direction: column;
     }
 
-    .btn-group button{
-        width:100%;
-        margin-bottom:10px;
+    .btn-group button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .cards-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
     }
 }

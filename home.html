@@ -5,51 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration Form</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
 
 <div class="container">
+    <!-- Form Box -->
     <div class="form-box">
         <h1>Student Registration Form</h1>
 
-        <form action="#">
+        <form id="registrationForm">
 
             <div class="input-group">
-                <label>Student Name</label>
-                <input type="text" placeholder="Enter your full name" required>
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter your full name" required>
             </div>
 
             <div class="input-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
             </div>
 
             <div class="input-group">
-                <label>Mobile Number</label>
-                <input type="tel" placeholder="Enter your mobile number" maxlength="10" required>
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="Enter your mobile number" maxlength="10" required>
             </div>
 
             <div class="input-group">
-                <label>Branch</label>
-                <select required>
+                <label for="branch">Branch</label>
+                <select id="branch" required>
                     <option value="">Select Branch</option>
-                    <option>Computer Science Engineering</option>
-                    <option>Information Technology</option>
-                    <option>Artificial Intelligence</option>
-                    <option>Electronics Engineering</option>
-                    <option>Mechanical Engineering</option>
-                    <option>Civil Engineering</option>
+                    <option value="Computer Science Engineering">Computer Science Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                    <option value="Electronics Engineering">Electronics Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label>Gender</label>
-                <select required>
+                <label for="gender">Gender</label>
+                <select id="gender" required>
                     <option value="">Select Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 
@@ -60,7 +60,44 @@
 
         </form>
     </div>
+
+    <!-- Student Cards Display Section -->
+    <div class="cards-section">
+        <div class="cards-header">
+            <h2>Registered Students <span class="counter-badge" id="cardsCountLabel">0 Cards</span></h2>
+            
+            <div class="controls-bar">
+                <input type="text" id="searchInput" placeholder="Search by name, email, mobile...">
+                <select id="filterBranch">
+                    <option value="ALL">All Branches</option>
+                    <option value="Computer Science Engineering">CSE</option>
+                    <option value="Information Technology">IT</option>
+                    <option value="Artificial Intelligence">AI</option>
+                    <option value="Electronics Engineering">ECE</option>
+                    <option value="Mechanical Engineering">Mechanical</option>
+                    <option value="Civil Engineering">Civil</option>
+                </select>
+                <select id="filterGender">
+                    <option value="ALL">All Genders</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Dynamic Card Grid -->
+        <div id="studentCardsContainer" class="cards-grid">
+            <!-- Student cards rendered dynamically -->
+        </div>
+
+        <!-- Empty state fallback -->
+        <div id="emptyState" class="empty-box hidden">
+            <p>No student records found matching your filters.</p>
+        </div>
+    </div>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>

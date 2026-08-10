@@ -105,6 +105,13 @@ if (passed) {
         console.log("\nBuild FAILED");
         process.exit(1);
     }
+    if (passed) {
+    console.log("\nAll Test Cases Passed.");
+    process.exit(0);
+    } else {
+    console.log("\nSome Test Cases Failed.");
+    process.exit(1);
+   }
 }
 
 console.log("\n======================================");
