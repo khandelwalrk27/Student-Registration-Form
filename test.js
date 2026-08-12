@@ -30,7 +30,7 @@ if (fs.existsSync("script.js")) {
 
 // TC-04 : students.json
 if (fs.existsSync("data/students.json")) {
-    console.log("TC-04 : students.json exists : PASS");
+    console.log("TC-04 : students.json exists : PASS ho gaya ");
 } else {
     console.log("TC-04 : students.json exists : FAIL");
     passed = false;
